@@ -11,7 +11,9 @@
 		59F2BE5B291B6B3900E5CE93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */; };
 		59F2BE5D291B6B3900E5CE93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE5C291B6B3900E5CE93 /* ViewController.swift */; };
 		59F2BE62291B6B3B00E5CE93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59F2BE61291B6B3B00E5CE93 /* Assets.xcassets */; };
-		59F2BE65291B6B3B00E5CE93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F2BE63291B6B3B00E5CE93 /* LaunchScreen.storyboard */; };
+		59F2BE72291B708200E5CE93 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE71291B708200E5CE93 /* Shop.swift */; };
+		59F2BE74291B70AF00E5CE93 /* ShopyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE73291B70AF00E5CE93 /* ShopyManager.swift */; };
+		59F2BE76291B716900E5CE93 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE75291B716900E5CE93 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +22,10 @@
 		59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		59F2BE5C291B6B3900E5CE93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59F2BE61291B6B3B00E5CE93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		59F2BE64291B6B3B00E5CE93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59F2BE66291B6B3B00E5CE93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59F2BE71291B708200E5CE93 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		59F2BE73291B70AF00E5CE93 /* ShopyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopyManager.swift; sourceTree = "<group>"; };
+		59F2BE75291B716900E5CE93 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +58,11 @@
 		59F2BE57291B6B3900E5CE93 /* Shopy */ = {
 			isa = PBXGroup;
 			children = (
-				59F2BE6C291B6E1000E5CE93 /* Application */,
+				59F2BE6E291B6E7A00E5CE93 /* Model */,
+				59F2BE6F291B6E8200E5CE93 /* View */,
 				59F2BE6D291B6E2200E5CE93 /* Controllers */,
-				59F2BE61291B6B3B00E5CE93 /* Assets.xcassets */,
-				59F2BE63291B6B3B00E5CE93 /* LaunchScreen.storyboard */,
-				59F2BE66291B6B3B00E5CE93 /* Info.plist */,
+				59F2BE6C291B6E1000E5CE93 /* Application */,
+				59F2BE70291B6EAC00E5CE93 /* Resources */,
 			);
 			path = Shopy;
 			sourceTree = "<group>";
@@ -78,6 +82,32 @@
 				59F2BE5C291B6B3900E5CE93 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		59F2BE6E291B6E7A00E5CE93 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				59F2BE71291B708200E5CE93 /* Shop.swift */,
+				59F2BE73291B70AF00E5CE93 /* ShopyManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		59F2BE6F291B6E8200E5CE93 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		59F2BE70291B6EAC00E5CE93 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59F2BE61291B6B3B00E5CE93 /* Assets.xcassets */,
+				59F2BE66291B6B3B00E5CE93 /* Info.plist */,
+				59F2BE75291B716900E5CE93 /* Constants.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +168,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59F2BE65291B6B3B00E5CE93 /* LaunchScreen.storyboard in Resources */,
 				59F2BE62291B6B3B00E5CE93 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,21 +182,13 @@
 				59F2BE5D291B6B3900E5CE93 /* ViewController.swift in Sources */,
 				59F2BE59291B6B3900E5CE93 /* AppDelegate.swift in Sources */,
 				59F2BE5B291B6B3900E5CE93 /* SceneDelegate.swift in Sources */,
+				59F2BE72291B708200E5CE93 /* Shop.swift in Sources */,
+				59F2BE74291B70AF00E5CE93 /* ShopyManager.swift in Sources */,
+				59F2BE76291B716900E5CE93 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		59F2BE63291B6B3B00E5CE93 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				59F2BE64291B6B3B00E5CE93 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		59F2BE67291B6B3B00E5CE93 /* Debug */ = {
@@ -293,7 +314,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R47L243CNF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Shopy/Info.plist;
+				INFOPLIST_FILE = Shopy/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -320,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R47L243CNF;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Shopy/Info.plist;
+				INFOPLIST_FILE = Shopy/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
