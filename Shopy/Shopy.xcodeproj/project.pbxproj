@@ -54,14 +54,30 @@
 		59F2BE57291B6B3900E5CE93 /* Shopy */ = {
 			isa = PBXGroup;
 			children = (
-				59F2BE58291B6B3900E5CE93 /* AppDelegate.swift */,
-				59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */,
-				59F2BE5C291B6B3900E5CE93 /* ViewController.swift */,
+				59F2BE6C291B6E1000E5CE93 /* Application */,
+				59F2BE6D291B6E2200E5CE93 /* Controllers */,
 				59F2BE61291B6B3B00E5CE93 /* Assets.xcassets */,
 				59F2BE63291B6B3B00E5CE93 /* LaunchScreen.storyboard */,
 				59F2BE66291B6B3B00E5CE93 /* Info.plist */,
 			);
 			path = Shopy;
+			sourceTree = "<group>";
+		};
+		59F2BE6C291B6E1000E5CE93 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				59F2BE58291B6B3900E5CE93 /* AppDelegate.swift */,
+				59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		59F2BE6D291B6E2200E5CE93 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				59F2BE5C291B6B3900E5CE93 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
