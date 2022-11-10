@@ -26,6 +26,8 @@ struct Constants {
     
     static let errorSystemImageName = "icloud.slash"
     
+    static let starSystemImageName = "star.fill"
+    
     struct ProductCollectionView {
         
         static let topDistanceToView: CGFloat = 10
