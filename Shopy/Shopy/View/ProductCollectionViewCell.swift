@@ -9,7 +9,7 @@ import UIKit
 
 final class ProductCollectionViewCell: UICollectionViewCell {
     
-    private let verticalStackView: UIStackView = {
+    let verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10

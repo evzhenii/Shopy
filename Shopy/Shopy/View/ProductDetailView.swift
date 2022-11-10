@@ -14,8 +14,27 @@ class ProductDetailView: UIView {
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .top
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
+    }()
+    
+    let imageStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.frame.size.height = 700
+        return stackView
+    }()
+    
+    let productImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.heightAnchor.constraint(equalToConstant:
+//                    500).isActive = true
+        return imageView
     }()
     
     lazy var productNameLabel: UILabel = {
@@ -23,10 +42,33 @@ class ProductDetailView: UIView {
         label.font = UIFont.systemFont(ofSize: 24)
         return label
     }()
+    
+    private let starImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: Constants.starSystemImageName)
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .red
+        return imageView
+    }()
+    
+    private let ratingStackView = UIStackView()
+    
+    let ratingLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
 
     let priceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 30)
+        return label
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 24)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -38,9 +80,18 @@ class ProductDetailView: UIView {
     }
     
     private func viewSetup() {
+        
         addSubview(mainStackView)
+        mainStackView.addArrangedSubview(imageStackView)
+        imageStackView.addArrangedSubview(productImageView)
         mainStackView.addArrangedSubview(productNameLabel)
+        mainStackView.addArrangedSubview(ratingStackView)
+        
+        ratingStackView.addArrangedSubview(starImageView)
+        ratingStackView.addArrangedSubview(ratingLabel)
+        
         mainStackView.addArrangedSubview(priceLabel)
+        mainStackView.addArrangedSubview(descriptionLabel)
     }
     
     private func layoutSetup() {
