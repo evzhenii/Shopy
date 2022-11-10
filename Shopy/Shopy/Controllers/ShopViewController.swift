@@ -13,6 +13,7 @@ final class ShopViewController: UIViewController {
     private let spinnerView = SpinnerView()
     private let imageCache = NSCache<AnyObject, AnyObject>()
     private var collectionView = ProductCollectionView()
+//    private var imageURLString: String?
     private var shop: Shop?
     
     override func viewDidLoad() {
@@ -30,8 +31,6 @@ final class ShopViewController: UIViewController {
         addSpinner()
         
         networkManager.loadShop { shop in
-//            guard let products = shop?.products else { return }
-//            self.collectionView.setProducts(with: products)
             self.shop = shop
             
             DispatchQueue.main.async {
@@ -69,26 +68,28 @@ extension ShopViewController: UICollectionViewDataSource {
         }
         
         if let product = shop?.products[indexPath.row] {
-            cell.title.text = product.title
+            cell.titleLabel.text = product.title
+            cell.priceLabel.text = "\(product.price) $"
             
             if let image = imageCache.object(forKey: product.thumbnail as AnyObject) as? UIImage {
+//                imageURLString = product.thumbnail
                 cell.previewImageView.image = image
                 return cell
             }
             
             DispatchQueue.global().async {
                 let image = self.networkManager.getImage(with: product.thumbnail)
-                self.imageCache.setObject(image as AnyObject, forKey: product.thumbnail as AnyObject)
-                DispatchQueue.main.async {
-                    cell.previewImageView.image = image
+//                if self.imageURLString == product.thumbnail {
+                    DispatchQueue.main.async {
+                        cell.previewImageView.image = image
+//                    }
                 }
+                self.imageCache.setObject(image as AnyObject, forKey: product.thumbnail as AnyObject)
             }
             
         }
         return cell
     }
-    
-    
 }
 
 

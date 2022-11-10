@@ -17,18 +17,24 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
-    lazy var title: UILabel = {
-        let title = UILabel()
-        title.translatesAutoresizingMaskIntoConstraints = false
-        return title
-    }()
-    
     lazy var previewImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         return imageView
     }()
+    
+    lazy var titleLabel: UILabel = {
+        let title = UILabel()
+        return title
+    }()
+    
+    lazy var priceLabel: UILabel = {
+        let priceLabel = UILabel()
+        return priceLabel
+    }()
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +46,8 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     private func viewSetup() {
         addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(previewImageView)
-        verticalStackView.addArrangedSubview(title)
+        verticalStackView.addArrangedSubview(titleLabel)
+        verticalStackView.addArrangedSubview(priceLabel)
     }
     
     private func layoutSetup() {

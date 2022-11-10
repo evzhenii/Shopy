@@ -42,10 +42,10 @@ struct Constants {
                                        Constants.ProductCollectionView.leftDistanceToView -
                                        Constants.ProductCollectionView.rightDistanceToView
         
-//        static let productItemHeight = UIScreen.main.bounds.height / 4
-        static let productItemHeight = UIScreen.main.bounds.width / 2 -
-        Constants.ProductCollectionView.leftDistanceToView -
-        Constants.ProductCollectionView.rightDistanceToView
+        static let productItemHeight = UIScreen.main.bounds.height / 3
+//        static let productItemHeight = UIScreen.main.bounds.width / 2 -
+//        Constants.ProductCollectionView.leftDistanceToView -
+//        Constants.ProductCollectionView.rightDistanceToView
 
     }
     
