@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     
@@ -23,7 +24,33 @@ struct Constants {
     
     static let pullToRefresh = "Pull to refresh"
     
+    static let errorSystemImageName = "icloud.slash"
+    
+    struct ProductCollectionView {
+        
+        static let topDistanceToView: CGFloat = 10
+        
+        static let bottomDistacneToView: CGFloat = 10
+        
+        static let leftDistanceToView: CGFloat = 10
+
+        static let rightDistanceToView: CGFloat = 10
+        
+        static let minimumLineSpacing: CGFloat = 10
+        
+        static let productItemWidth = UIScreen.main.bounds.width / 2 -
+                                       Constants.ProductCollectionView.leftDistanceToView -
+                                       Constants.ProductCollectionView.rightDistanceToView
+        
+//        static let productItemHeight = UIScreen.main.bounds.height / 4
+        static let productItemHeight = UIScreen.main.bounds.width / 2 -
+        Constants.ProductCollectionView.leftDistanceToView -
+        Constants.ProductCollectionView.rightDistanceToView
+
+    }
+    
     struct Errors {
+        
         static let missingData = "Wow, I couldn`t get data from server. That is strange. Already trying to fix it. Thanks for your patience, try again later"
         
         static let cannotConvertURL = "No way, URL is not avaliable at the moment. Refresh or try again later."

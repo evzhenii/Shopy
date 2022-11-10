@@ -11,7 +11,8 @@ final class SpinnerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .tertiarySystemBackground
+        backgroundColor = .systemBackground
+        
         addSubview(spinner)
         NSLayoutConstraint.activate([
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -25,7 +26,6 @@ final class SpinnerView: UIView {
         spinner.hidesWhenStopped = true
         spinner.style = .large
         spinner.startAnimating()
-        spinner.backgroundColor = .white
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
     }()
