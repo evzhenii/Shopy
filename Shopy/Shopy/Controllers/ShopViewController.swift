@@ -12,6 +12,7 @@ final class ShopViewController: UIViewController {
     private var shopyManager = ShopyManager()
     private let spinnerView = SpinnerView()
     private let tableView = UITableView()
+    private var shop: Shop? = nil
     
     
     override func viewDidLoad() {
@@ -29,7 +30,7 @@ final class ShopViewController: UIViewController {
         addSpinner()
         
         shopyManager.loadShop { shop in
-            print(shop?.products[0].title)
+            self.shop = shop
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.spinnerView.spinner.stopAnimating()
@@ -38,10 +39,6 @@ final class ShopViewController: UIViewController {
         }
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//    }
     
     private func addSpinner() {
         view.addSubview(spinnerView)
@@ -72,12 +69,13 @@ extension ShopViewController: UITableViewDelegate {
 
 extension ShopViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return shop?.products.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.productCellIdentifier, for: indexPath)
-        cell.textLabel?.text = "cell \(indexPath.row + 1)"
+        
+        cell.textLabel?.text = shop?.products[indexPath.row].title
         return cell
     }
     
