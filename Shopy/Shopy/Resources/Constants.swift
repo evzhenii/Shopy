@@ -11,7 +11,7 @@ struct Constants {
     
     static let url = "https://dummyjson.com/products"
     
-    static let employeeTableViewCellIdentifier = "ProductTableViewCell"
+    static let productCellIdentifier = "ProductTableViewCell"
     
     static let companyJSONKey = "shopJSONKey"
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5992426A291CDC5A0088CE09 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59924269291CDC5A0088CE09 /* SpinnerView.swift */; };
+		5992426C291D06520088CE09 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992426B291D06520088CE09 /* ProductTableViewCell.swift */; };
 		59F2BE59291B6B3900E5CE93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE58291B6B3900E5CE93 /* AppDelegate.swift */; };
 		59F2BE5B291B6B3900E5CE93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */; };
 		59F2BE5D291B6B3900E5CE93 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE5C291B6B3900E5CE93 /* ShopViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		59924269291CDC5A0088CE09 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		5992426B291D06520088CE09 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		59F2BE55291B6B3900E5CE93 /* Shopy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F2BE58291B6B3900E5CE93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				59924269291CDC5A0088CE09 /* SpinnerView.swift */,
+				5992426B291D06520088CE09 /* ProductTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59F2BE5D291B6B3900E5CE93 /* ShopViewController.swift in Sources */,
+				5992426C291D06520088CE09 /* ProductTableViewCell.swift in Sources */,
 				59F2BE59291B6B3900E5CE93 /* AppDelegate.swift in Sources */,
 				59F2BE5B291B6B3900E5CE93 /* SceneDelegate.swift in Sources */,
 				59F2BE72291B708200E5CE93 /* Shop.swift in Sources */,
