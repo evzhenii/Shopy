@@ -25,7 +25,7 @@ final class ShopViewController: UIViewController {
         
         view.addSubview(collectionView)
         collectionView.frame = self.view.bounds
-//        collectionView.delegate = self
+        collectionView.delegate = self
         collectionView.dataSource = self
         
         addSpinner()
@@ -54,7 +54,12 @@ final class ShopViewController: UIViewController {
 }
 
 extension ShopViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let product = shop?.products[indexPath.row] else { return }
+        let productViewController = ProductViewController(product: product)
+        self.navigationController?.pushViewController(productViewController, animated: true)
+    }
 }
 
 extension ShopViewController: UICollectionViewDataSource {
@@ -91,6 +96,22 @@ extension ShopViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension ShopViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: Constants.ProductCollectionView.productItemWidth,
+                      height: Constants.ProductCollectionView.productItemHeight)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: Constants.ProductCollectionView.topDistanceToView,
+                            left: Constants.ProductCollectionView.leftDistanceToView,
+                            bottom: Constants.ProductCollectionView.bottomDistacneToView,
+                            right: Constants.ProductCollectionView.rightDistanceToView)
+    }
+}
+
 
 
 extension ShopViewController: NetworkManagerDelegate {

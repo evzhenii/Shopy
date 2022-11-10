@@ -21,20 +21,24 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant:
+                    Constants.ProductCollectionView.productItemWidth)
+        .isActive = true
         return imageView
     }()
     
     lazy var titleLabel: UILabel = {
         let title = UILabel()
+        title.numberOfLines = 2
         return title
     }()
     
     lazy var priceLabel: UILabel = {
         let priceLabel = UILabel()
+        priceLabel.font = UIFont.boldSystemFont(ofSize: 18)
         return priceLabel
     }()
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

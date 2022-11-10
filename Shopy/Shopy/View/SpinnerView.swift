@@ -18,6 +18,7 @@ final class SpinnerView: UIView {
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+        
         translatesAutoresizingMaskIntoConstraints = false
     }
     
