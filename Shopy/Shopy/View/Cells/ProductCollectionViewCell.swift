@@ -31,9 +31,6 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     let productNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-//        label.lineBreakMode = .byWordWrapping
-//        label.adjustsFontSizeToFitWidth = true
-//        label.minimumScaleFactor = 0.8
         return label
     }()
     

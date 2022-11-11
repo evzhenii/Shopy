@@ -14,7 +14,6 @@ final class ShopViewController: UIViewController {
     private let spinnerView = SpinnerView()
     private let imageCache = NSCache<AnyObject, AnyObject>()
     private var productCollectionView = ProductCollectionView()
-//    private var imageURLString: String?
     private var shop: Shop?
 
 

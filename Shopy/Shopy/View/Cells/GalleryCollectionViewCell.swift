@@ -10,11 +10,9 @@ import UIKit
 class GalleryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - SubViews
-    
     let galleryImageView = UIImageView()
     
     // MARK: - Initializer
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

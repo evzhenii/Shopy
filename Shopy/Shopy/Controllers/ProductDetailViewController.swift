@@ -39,8 +39,8 @@ private extension ProductDetailViewController {
             galleryView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.7 + 30),
             
             productDetailView.topAnchor.constraint(equalTo: galleryView.bottomAnchor, constant: 10),
-            productDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            productDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            productDetailView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 20),
+            productDetailView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
 }

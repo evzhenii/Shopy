@@ -14,9 +14,6 @@ class ProductDetailView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 20
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .top
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -37,11 +34,7 @@ class ProductDetailView: UIView {
         return imageView
     }()
     
-    private let ratingStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.spacing = 5
-        return stackView
-    }()
+    private let ratingView = UIView()
     
     let ratingLabel: UILabel = {
         let label = UILabel()
@@ -73,22 +66,29 @@ class ProductDetailView: UIView {
 private extension ProductDetailView {
     
     func setupUI() {
-        
         addSubview(mainStackView)
         mainStackView.addArrangedSubview(productNameLabel)
-        mainStackView.addArrangedSubview(ratingStackView)
+        mainStackView.addArrangedSubview(ratingView)
         
-        ratingStackView.addArrangedSubview(starImageView)
-        ratingStackView.addArrangedSubview(ratingLabel)
+        ratingView.addSubview(starImageView)
+        ratingView.addSubview(ratingLabel)
         
         mainStackView.addArrangedSubview(priceLabel)
         mainStackView.addArrangedSubview(informationView)
         
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        starImageView.translatesAutoresizingMaskIntoConstraints = false
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: topAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            starImageView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
+            starImageView.centerYAnchor.constraint(equalTo: ratingView.centerYAnchor),
+            ratingLabel.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 5),
+            ratingLabel.centerYAnchor.constraint(equalTo: ratingView.centerYAnchor),
         ])
     }
 }
