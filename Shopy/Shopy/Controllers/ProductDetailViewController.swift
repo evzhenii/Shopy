@@ -9,18 +9,33 @@ import UIKit
 
 final class ProductDetailViewController: UIViewController {
     
-//    var product: Product?
-    var productDetailView = ProductDetailView()
+//    private var images: [UIImage]?
+//    private let stackView = VerticalStackView()
+    private let galleryView = GalleryView()
+//    private let carouselCollectionView: UICollectionView = {
+//        let layout = UICollectionViewFlowLayout()
+//        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+//        layout.scrollDirection = .horizontal
+////        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        return collectionView
+//    }()
+    
+    private var productDetailView = ProductDetailView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .tertiarySystemBackground
+        
+//        view.addSubview(galleryView)
+        
+//        view.addSubview(carouselCollectionView)
+//        carouselCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.galleryCellIdentifier)
+//        carouselCollectionView.delegate = self
+//        carouselCollectionView.dataSource = self
+        
         viewSetup()
         layoutSetup()
-    }
-    
-    private func viewSetup() {
-        view.addSubview(productDetailView)
+        
     }
     
     func setProductProperties(_ product: Product) {
@@ -31,23 +46,57 @@ final class ProductDetailViewController: UIViewController {
     }
     
     func setImages(with images: [UIImage]) {
-        DispatchQueue.main.async {
-            images.forEach { image in
-                let newImage = UIImageView()
-                newImage.image = image
-                print(image)
-                self.productDetailView.imageStackView.addArrangedSubview(newImage)
-//                self.productDetailView.descriptionLabel.text = "a;lsdkfjals;djf;laksdjflkasdfjalskdfjal;sdfjasd;fladsjf"
-            }
-        }
+//        self.images = images
+        self.galleryView.configureView(with: images)
+//            self.carouselCollectionView.reloadData()
+    }
+    
+    private func viewSetup() {
+        view.addSubview(galleryView)
+        view.addSubview(productDetailView)
     }
     
     private func layoutSetup() {
+        galleryView.translatesAutoresizingMaskIntoConstraints = false
+        productDetailView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            productDetailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            productDetailView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            productDetailView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            productDetailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            galleryView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            galleryView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            galleryView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            galleryView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.8),
+            
+            productDetailView.topAnchor.constraint(equalTo: galleryView.bottomAnchor, constant: 10),
+            productDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            productDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
     }
 }
+
+//// MARK: - UICollectionViewDelegate
+//extension ProductDetailViewController: UICollectionViewDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        collectionView.deselectItem(at: indexPath, animated: true)
+//    }
+//
+//}
+//
+//// MARK: - UICollectionViewDataSource
+//extension ProductDetailViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return images?.count ?? 1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.galleryCellIdentifier, for: indexPath) as? GalleryCollectionViewCell else {
+//            print("aaa")
+//            return UICollectionViewCell()
+//        }
+//
+//        if let image = images?[indexPath.row] {
+//            cell.galleryImageView.image = image
+//        }
+////        cell.imageView?.image = images[indexPath.row]
+//        return cell
+//    }
+//}

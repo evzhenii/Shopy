@@ -14,15 +14,7 @@ struct Constants {
     
     static let productCellIdentifier = "ProductTableViewCell"
     
-    static let companyJSONKey = "shopJSONKey"
-    
-    static let nwPathMonitorQueue = "Network"
-    
-    static let noInternetSystemImage = "wifi.slash"
-    
-    static let genericErrorMessage = "Whoops, I got an error :("
-    
-    static let pullToRefresh = "Pull to refresh"
+    static let galleryCellIdentifier = "GalleryTableViewCellIdentifier"
     
     static let errorSystemImageName = "icloud.slash"
     
@@ -45,9 +37,6 @@ struct Constants {
                                        Constants.ProductCollectionView.rightDistanceToView
         
         static let productItemHeight = UIScreen.main.bounds.height / 3
-//        static let productItemHeight = UIScreen.main.bounds.width / 2 -
-//        Constants.ProductCollectionView.leftDistanceToView -
-//        Constants.ProductCollectionView.rightDistanceToView
 
     }
     

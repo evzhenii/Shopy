@@ -65,12 +65,13 @@ extension ShopViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         guard let product = shop?.products[indexPath.row] else { return }
         let productDetailViewController = ProductDetailViewController()
-//        productDetailViewController.product = product
         DispatchQueue.global().async {
             let imageArray = product.images.compactMap { url in
                 self.networkManager.getImage(with: url)
             }
-            productDetailViewController.setImages(with: imageArray)
+            DispatchQueue.main.async {
+                productDetailViewController.setImages(with: imageArray)
+            }
         }
         productDetailViewController.setProductProperties(product)
         self.navigationController?.pushViewController(productDetailViewController, animated: true)
