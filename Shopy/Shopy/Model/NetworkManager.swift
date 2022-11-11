@@ -8,15 +8,19 @@
 import Foundation
 import UIKit
 
+// MARK: - Protocols
 protocol NetworkManagerDelegate {
     func presentError(_ error: String)
 }
 
+// MARK: - NetworkManager
 struct NetworkManager {
     
+    // MARK: - Properties
     var delegate: NetworkManagerDelegate?
     
-    func loadShop(completion: @escaping ((Shop?) -> Void)) {
+    // MARK: - Public methods
+    public func loadShop(completion: @escaping ((Shop?) -> Void)) {
         guard let url = URL(string: Constants.url) else {
             delegate?.presentError(Constants.Errors.cannotConvertURL)
             return
@@ -40,18 +44,7 @@ struct NetworkManager {
         task.resume()
     }
     
-    private func parseJSON(_ data: Data) -> Shop? {
-        let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode(Shop.self, from: data)
-            return decodedData
-        } catch {
-            delegate?.presentError(error.localizedDescription)
-            return nil
-        }
-    }
-    
-    func getImage(with url: String) -> UIImage? {
+    public func getImage(with url: String) -> UIImage? {
         if let url = URL(string: url) {
             do {
                 let data = try Data(contentsOf: url)
@@ -61,5 +54,25 @@ struct NetworkManager {
             }
         }
         return nil
+    }
+    
+    public func getImageArray(with urls: [String]) -> [UIImage] {
+        return urls.compactMap { url in
+            getImage(with: url)
+        }
+    }
+}
+
+// MARK: - Helpers
+private extension NetworkManager {
+    func parseJSON(_ data: Data) -> Shop? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(Shop.self, from: data)
+            return decodedData
+        } catch {
+            delegate?.presentError(error.localizedDescription)
+            return nil
+        }
     }
 }

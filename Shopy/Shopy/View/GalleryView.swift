@@ -62,7 +62,6 @@ private extension GalleryView {
             galleryCollectionView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
             
             pageControl.topAnchor.constraint(equalTo: galleryCollectionView.bottomAnchor, constant: 10),
-//            pageControl.heightAnchor.constraint(equalToConstant: 20),
             pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
@@ -118,7 +117,7 @@ extension GalleryView: UICollectionViewDataSource {
    }
 }
 
-// MARK: - Public
+// MARK: - Public methods
 extension GalleryView {
     public func configureView(with data: [UIImage]) {
         let galleryLayout = UICollectionViewFlowLayout()

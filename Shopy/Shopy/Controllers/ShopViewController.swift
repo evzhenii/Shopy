@@ -48,6 +48,7 @@ final class ShopViewController: UIViewController {
 // MARK: - Private Functions
     private func addSpinner() {
         view.addSubview(spinnerView)
+        spinnerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             spinnerView.topAnchor.constraint(equalTo: view.topAnchor),
             spinnerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -62,13 +63,12 @@ extension ShopViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        collectionView.deselectItem(at: indexPath, animated: true)
         guard let product = shop?.products[indexPath.row] else { return }
         let productDetailViewController = ProductDetailViewController()
+        
         DispatchQueue.global().async {
-            let imageArray = product.images.compactMap { url in
-                self.networkManager.getImage(with: url)
-            }
+            let imageArray = self.networkManager.getImageArray(with: product.images)
+            
             DispatchQueue.main.async {
                 productDetailViewController.setImages(with: imageArray)
             }

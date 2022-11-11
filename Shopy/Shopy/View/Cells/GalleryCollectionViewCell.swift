@@ -44,9 +44,8 @@ private extension GalleryCollectionViewCell {
     }
 }
 
-// MARK: - Public
+// MARK: - Public methods
 extension GalleryCollectionViewCell {
-    
     public func configure(_ image: UIImage) {
         galleryImageView.image = image
     }

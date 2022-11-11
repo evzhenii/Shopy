@@ -9,19 +9,7 @@ import UIKit
 
 final class SpinnerView: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .systemBackground
-        
-        addSubview(spinner)
-        NSLayoutConstraint.activate([
-            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-        
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
+    // MARK: - SubViews
     let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView()
         spinner.hidesWhenStopped = true
@@ -31,8 +19,26 @@ final class SpinnerView: UIView {
         return spinner
     }()
     
+    // MARK: - Initializers
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+// MARK: - Setups
+private extension SpinnerView {
+    func setupUI() {
+        backgroundColor = .systemBackground
+        
+        addSubview(spinner)
+        NSLayoutConstraint.activate([
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+    }
 }

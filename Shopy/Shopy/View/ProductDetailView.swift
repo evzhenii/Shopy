@@ -9,7 +9,7 @@ import UIKit
 
 class ProductDetailView: UIView {
     
-//    private var product: Product?
+    // MARK: - SubViews
     
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
@@ -19,22 +19,6 @@ class ProductDetailView: UIView {
         stackView.alignment = .top
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-    }()
-    
-    let imageStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.frame.size.height = 700
-        return stackView
-    }()
-    
-    let productImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.heightAnchor.constraint(equalToConstant:
-//                    500).isActive = true
-        return imageView
     }()
     
     lazy var productNameLabel: UILabel = {
@@ -58,7 +42,7 @@ class ProductDetailView: UIView {
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
-
+    
     let priceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 30)
@@ -67,23 +51,41 @@ class ProductDetailView: UIView {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 18)
         label.numberOfLines = 0
         return label
     }()
     
+    let brandLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
+    
+    let categoryLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        return label
+    }()
+    
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        viewSetup()
-        layoutSetup()
+        setupUI()
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func viewSetup() {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Setups
+private extension ProductDetailView {
+    
+    func setupUI() {
         
         addSubview(mainStackView)
-        mainStackView.addArrangedSubview(imageStackView)
-        imageStackView.addArrangedSubview(productImageView)
         mainStackView.addArrangedSubview(productNameLabel)
         mainStackView.addArrangedSubview(ratingStackView)
         
@@ -92,18 +94,14 @@ class ProductDetailView: UIView {
         
         mainStackView.addArrangedSubview(priceLabel)
         mainStackView.addArrangedSubview(descriptionLabel)
-    }
-    
-    private func layoutSetup() {
+        mainStackView.addArrangedSubview(brandLabel)
+        mainStackView.addArrangedSubview(categoryLabel)
+        
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: topAnchor),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

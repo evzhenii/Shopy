@@ -9,6 +9,7 @@ import UIKit
 
 final class ProductCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - SubViews
     let verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -80,14 +81,21 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         return saleLabel
     }()
     
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        viewSetup()
-        layoutSetup()
+        setupUI()
     }
-
     
-    private func viewSetup() {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Setups
+private extension ProductCollectionViewCell {
+    func setupUI() {
         addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(previewImageView)
         verticalStackView.addArrangedSubview(productNameLabel)
@@ -104,9 +112,7 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         priceStackView.addArrangedSubview(priceLabel)
         priceStackView.addArrangedSubview(saleLabel)
         priceStackView.addArrangedSubview(spacerView2)
-    }
-    
-    private func layoutSetup() {
+        
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: self.topAnchor),
             verticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -115,9 +121,5 @@ final class ProductCollectionViewCell: UICollectionViewCell {
             
             saleLabel.widthAnchor.constraint(equalToConstant: 70)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
