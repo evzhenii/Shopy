@@ -51,9 +51,10 @@ extension ProductDetailViewController {
         productDetailView.productNameLabel.text = product.title
         productDetailView.priceLabel.text = "\(product.price) $"
         productDetailView.ratingLabel.text = "Rating " + String(format: "%.1f", product.rating)
-        productDetailView.descriptionLabel.text = "\(product.productDescription)"
-        productDetailView.categoryLabel.text = "Category: \(product.category)"
-        productDetailView.brandLabel.text = "Brand: \(product.brand)"
+        productDetailView.informationView.descriptionLabel.text = "\(product.productDescription)"
+        productDetailView.informationView.categoryDetailSubView.detailValueLabel.text = "\(product.category)"
+        productDetailView.informationView.brandDetailSubView.detailValueLabel.text = "\(product.brand)"
+        productDetailView.informationView.stockDetailSubView.detailValueLabel.text = "\(product.stock)"
     }
     
     public func setImages(with images: [UIImage]) {

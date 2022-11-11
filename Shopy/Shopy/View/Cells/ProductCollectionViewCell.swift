@@ -29,9 +29,12 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     }()
     
     let productNameLabel: UILabel = {
-        let title = UILabel()
-        title.numberOfLines = 2
-        return title
+        let label = UILabel()
+        label.numberOfLines = 0
+//        label.lineBreakMode = .byWordWrapping
+//        label.adjustsFontSizeToFitWidth = true
+//        label.minimumScaleFactor = 0.8
+        return label
     }()
     
     private let ratingStackView = UIStackView()
@@ -80,6 +83,9 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         saleLabel.font = UIFont.systemFont(ofSize: 16)
         return saleLabel
     }()
+    
+    // MARK: - Properties
+    var representedIdentifier: Int?
     
     // MARK: - Initializers
     

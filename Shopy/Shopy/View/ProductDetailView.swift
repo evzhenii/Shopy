@@ -10,7 +10,6 @@ import UIKit
 class ProductDetailView: UIView {
     
     // MARK: - SubViews
-    
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -23,7 +22,10 @@ class ProductDetailView: UIView {
     
     lazy var productNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.font = UIFont.systemFont(ofSize: 32, weight: .heavy)
         return label
     }()
     
@@ -35,7 +37,11 @@ class ProductDetailView: UIView {
         return imageView
     }()
     
-    private let ratingStackView = UIStackView()
+    private let ratingStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 5
+        return stackView
+    }()
     
     let ratingLabel: UILabel = {
         let label = UILabel()
@@ -49,24 +55,7 @@ class ProductDetailView: UIView {
         return label
     }()
     
-    let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    let brandLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        return label
-    }()
-    
-    let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        return label
-    }()
+    let informationView = InformationView()
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -93,9 +82,7 @@ private extension ProductDetailView {
         ratingStackView.addArrangedSubview(ratingLabel)
         
         mainStackView.addArrangedSubview(priceLabel)
-        mainStackView.addArrangedSubview(descriptionLabel)
-        mainStackView.addArrangedSubview(brandLabel)
-        mainStackView.addArrangedSubview(categoryLabel)
+        mainStackView.addArrangedSubview(informationView)
         
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: topAnchor),

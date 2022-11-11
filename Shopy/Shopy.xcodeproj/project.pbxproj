@@ -14,6 +14,9 @@
 		59924274291D56270088CE09 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59924273291D56270088CE09 /* ProductDetailView.swift */; };
 		5992427B291E3B080088CE09 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992427A291E3B080088CE09 /* GalleryCollectionViewCell.swift */; };
 		5992427D291E4AF60088CE09 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992427C291E4AF60088CE09 /* GalleryView.swift */; };
+		5992427F291E7F7B0088CE09 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992427E291E7F7B0088CE09 /* InformationView.swift */; };
+		59924281291E81360088CE09 /* DetailSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59924280291E81360088CE09 /* DetailSubView.swift */; };
+		59924283291E883F0088CE09 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59924282291E883F0088CE09 /* DividerView.swift */; };
 		59F2BE59291B6B3900E5CE93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE58291B6B3900E5CE93 /* AppDelegate.swift */; };
 		59F2BE5B291B6B3900E5CE93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */; };
 		59F2BE5D291B6B3900E5CE93 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2BE5C291B6B3900E5CE93 /* ShopViewController.swift */; };
@@ -31,6 +34,9 @@
 		59924273291D56270088CE09 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		5992427A291E3B080088CE09 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		5992427C291E4AF60088CE09 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		5992427E291E7F7B0088CE09 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		59924280291E81360088CE09 /* DetailSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubView.swift; sourceTree = "<group>"; };
+		59924282291E883F0088CE09 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		59F2BE55291B6B3900E5CE93 /* Shopy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F2BE58291B6B3900E5CE93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59F2BE5A291B6B3900E5CE93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,18 @@
 				5992427A291E3B080088CE09 /* GalleryCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		59924284291E887E0088CE09 /* Constructors */ = {
+			isa = PBXGroup;
+			children = (
+				59924269291CDC5A0088CE09 /* SpinnerView.swift */,
+				5992427E291E7F7B0088CE09 /* InformationView.swift */,
+				59924280291E81360088CE09 /* DetailSubView.swift */,
+				59924282291E883F0088CE09 /* DividerView.swift */,
+				5992427C291E4AF60088CE09 /* GalleryView.swift */,
+			);
+			path = Constructors;
 			sourceTree = "<group>";
 		};
 		59F2BE4C291B6B3900E5CE93 = {
@@ -120,10 +138,9 @@
 		59F2BE6F291B6E8200E5CE93 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				59924269291CDC5A0088CE09 /* SpinnerView.swift */,
 				59924273291D56270088CE09 /* ProductDetailView.swift */,
 				5992426F291D18120088CE09 /* ProductCollectionView.swift */,
-				5992427C291E4AF60088CE09 /* GalleryView.swift */,
+				59924284291E887E0088CE09 /* Constructors */,
 				59924279291E361E0088CE09 /* Cells */,
 			);
 			path = View;
@@ -210,6 +227,8 @@
 			files = (
 				59F2BE5D291B6B3900E5CE93 /* ShopViewController.swift in Sources */,
 				59924274291D56270088CE09 /* ProductDetailView.swift in Sources */,
+				59924281291E81360088CE09 /* DetailSubView.swift in Sources */,
+				5992427F291E7F7B0088CE09 /* InformationView.swift in Sources */,
 				59924270291D18120088CE09 /* ProductCollectionView.swift in Sources */,
 				5992427D291E4AF60088CE09 /* GalleryView.swift in Sources */,
 				5992427B291E3B080088CE09 /* GalleryCollectionViewCell.swift in Sources */,
@@ -220,6 +239,7 @@
 				5992426A291CDC5A0088CE09 /* SpinnerView.swift in Sources */,
 				5992426E291D115E0088CE09 /* ProductCollectionViewCell.swift in Sources */,
 				59924272291D4E370088CE09 /* ProductDetailViewController.swift in Sources */,
+				59924283291E883F0088CE09 /* DividerView.swift in Sources */,
 				59F2BE76291B716900E5CE93 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

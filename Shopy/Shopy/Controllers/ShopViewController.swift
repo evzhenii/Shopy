@@ -9,7 +9,7 @@ import UIKit
 
 final class ShopViewController: UIViewController {
 
-// MARK: - Private variables
+// MARK: - Private properties
     private var networkManager = NetworkManager()
     private let spinnerView = SpinnerView()
     private let imageCache = NSCache<AnyObject, AnyObject>()
@@ -90,7 +90,10 @@ extension ShopViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        cell.previewImageView.image = nil
+        
         if let product = shop?.products[indexPath.row] {
+            cell.representedIdentifier = product.id
             cell.productNameLabel.text = product.title
             cell.ratingLabel.text = String(format: "%.1f", product.rating)
             cell.stockNumberLabel.text = "\(product.stock) left"
@@ -98,19 +101,18 @@ extension ShopViewController: UICollectionViewDataSource {
             cell.saleLabel.text = "-\(product.discountPercentage)%"
             
             if let image = imageCache.object(forKey: product.thumbnail as AnyObject) as? UIImage {
-//                imageURLString = product.thumbnail
                 cell.previewImageView.image = image
                 return cell
             }
             
             DispatchQueue.global().async {
                 let image = self.networkManager.getImage(with: product.thumbnail)
-//                if self.imageURLString == product.thumbnail {
+                if cell.representedIdentifier == product.id {
                     DispatchQueue.main.async {
                         cell.previewImageView.image = image
-//                    }
+                    }
+                    self.imageCache.setObject(image as AnyObject, forKey: product.thumbnail as AnyObject)
                 }
-                self.imageCache.setObject(image as AnyObject, forKey: product.thumbnail as AnyObject)
             }
             
         }
@@ -133,7 +135,6 @@ extension ShopViewController: UICollectionViewDelegateFlowLayout {
                             right: Constants.ProductCollectionView.rightDistanceToView)
     }
 }
-
 
 // MARK: - NetworkManagerDelegate
 extension ShopViewController: NetworkManagerDelegate {
